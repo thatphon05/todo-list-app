@@ -1,0 +1,90 @@
+spring:
+  profiles:
+    active: dev
+  application:
+    name: dev-app
+  datasource:
+    url: jdbc:mysql://localhost:3306/todo2
+    username: root
+    password: ''
+  devtools:
+    restart:
+      poll-interval: 2s
+      quiet-period: 1s
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        jdbc.batch_size: 30
+        dialect: org.hibernate.dialect.MySQLDialect
+        generate_statistics: true
+    show-sql: true
+  main:
+    web-application-type: servlet
+  output:
+    ansi:
+      enabled: always
+server:
+  port: 8080
+app:
+  jwtCookieName: todo-list-app-jwt
+  jwtExpirationMs: 3600000
+  jwtSecret: qk=CHpUHvJqBneAcqxZk3Fo8UVQpiRhMY78wlOdzbrsPnSGzPpOB7nm9SHCHkToC
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+        engine:
+          transaction:
+            internal:
+              TransactionImpl: DEBUG
+        stat: DEBUG
+        type: TRACE
+#---
+#spring:
+#  profiles:
+#    active: prod
+#  application:
+#    name: prod-app
+#  datasource:
+#    url: jdbc:mysql://localhost:3306/prod
+#    username: root
+#    password: ''
+#  devtools:
+#    restart:
+#      poll-interval: 2s
+#      quiet-period: 1s
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#    properties:
+#      hibernate:
+#        dialect: org.hibernate.dialect.MySQLDialect
+#        generate_statistics: true
+#    show-sql: true
+#  main:
+#    web-application-type: servlet
+#  output:
+#    ansi:
+#      enabled: always
+#server:
+#  port: 8080
+#app:
+#  jwtCookieName: todo-list-app-jwt
+#  jwtExpirationMs: 3600000
+#  jwtSecret: qk=CHpUHvJqBneAcqxZk3Fo8UVQpiRhMY78wlOdzbrsPnSGzPpOB7nm9SHCHkToC
+#  refreshTokenCookieName: todo-list-app-refresh-token
+#  refreshTokenExpirationMs: 86400000
+#logging:
+#  level:
+#    org:
+#      hibernate:
+#        SQL: DEBUG
+#        engine:
+#          transaction:
+#            internal:
+#              TransactionImpl: DEBUG
+#        stat: DEBUG
+#        type: TRACE
